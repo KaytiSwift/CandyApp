@@ -1,7 +1,9 @@
 using CandyApp.Controllers;
+using CandyApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace CandyApp.Tests
@@ -31,6 +33,14 @@ namespace CandyApp.Tests
             
             var result = underTest.Index();
             candyRepo.Received().GetAll();
+        }
+
+        [Fact]
+        public void Index_Sets_AllDogs_As_Model()
+        {
+            var expectedModel = new List<Candy>();
+            var result = underTest.Index();
+            candyRepo.GetAll().Returns(expectedModel);
         }
     }
 }
