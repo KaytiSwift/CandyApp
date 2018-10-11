@@ -20,5 +20,10 @@ namespace CandyApp.Controllers
             candyRepo.GetAll();
             return View();
         }
+
+        public object FindByName()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

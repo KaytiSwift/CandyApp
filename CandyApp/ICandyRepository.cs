@@ -9,5 +9,6 @@ namespace CandyApp
     public interface ICandyRepository
     {
         List<Candy> GetAll();
+        void FindByName();
     }
 }

@@ -36,11 +36,18 @@ namespace CandyApp.Tests
         }
 
         [Fact]
-        public void Index_Sets_AllDogs_As_Model()
+        public void Index_Sets_AllCandy_As_Model()
         {
             var expectedModel = new List<Candy>();
             var result = underTest.Index();
             candyRepo.GetAll().Returns(expectedModel);
+        }
+
+        [Fact]
+        public void Details_Gets_A_Candy()
+        {
+            var result = underTest.FindByName();
+            candyRepo.Received().FindByName();
         }
     }
 }
